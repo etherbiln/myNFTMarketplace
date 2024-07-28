@@ -1,3 +1,24 @@
+console.log("Owner of token:", owner);
+const owner = await marketplace.ownerOf(1);
+const tokenId = 1; // Replace with the actual token ID
+console.log("Owner of token:", owner);
+const owner = await marketplace.ownerOf(tokenId);
+const tokenId = 1; // Replace with the actual token ID
+console.log("NFT purchased successfully");
+await tx.wait();
+const tx = await marketplace.buyNFT(tokenId, { value: ethers.utils.parseEther("0.1") });
+const tokenId = 1; // Replace with the actual token ID you want to buy
+console.log("NFT listed for sale successfully");
+await tx.wait();
+const tx = await marketplace.listForSale(tokenId, price);
+const price = ethers.utils.parseEther("0.1"); // Replace with your actual price
+const tokenId = 1; // Replace with your actual token ID
+console.log("NFT minted successfully");
+await tx.wait();
+const tx = await marketplace.mint("tokenURI");
+const marketplace = await NFTMarketplace.attach("0xAC0775EA1214Dd83c9e9951e6C476605d11ECEF6");
+const NFTMarketplace = await ethers.getContractFactory("NFTMarketplace");
+.help
 .exit
 .clear
 .help
