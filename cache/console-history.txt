@@ -1,0 +1,121 @@
+.exit
+.clear
+.help
+console.log(`NFT with token ID ${tokenId} is now for sale for ${ethers.utils.formatEther(price)} ETH`);
+await nftMarketplace.startNFTSale(mockERC721Address, price, tokenId);
+const price = ethers.utils.parseEther("0.001"); // NFT fiyatı (1 ETH)
+console.log(`NFT with token ID ${tokenId} is now for sale for ${ethers.utils.formatEther(price)} ETH`);
+await nftMarketplace.startNFTSale(mockERC721Address, price, tokenId);
+const price = ethers.utils.parseEther("1"); // NFT fiyatı (1 ETH)
+console.log(`NFT with sale ID ${saleId} purchased`);
+await nftMarketplace.buyNFT(saleId, { value: price });
+const recipient = 0xAC0775EA1214Dd83c9e9951e6C476605d11ECEF6"; const saleId = 0; // Satış ID'si (ilk satış)
+const tokenId = 1;
+console.log(`NFT minted with token ID ${tokenId} to address ${recipient}`);
+await mockERC721.mint(recipient, tokenId);
+const recipient = "0xAC0775EA1214Dd83c9e9951e6C476605d11ECEF6"; // NFT'nin gönderileceği adres
+const tokenId = 1; // Basılacak token ID'si
+console.log(`NFT minted with token ID ${tokenId} to address ${recipient}`);
+await mockERC721.mint(recipient, tokenId);
+const recipient = "0xYourRecipientAddress"; // NFT'nin gönderileceği adres
+const tokenId = 1; // Basılacak token ID'si
+const nftMarketplace = new ethers.Contract(nftMarketplaceAddress, nftMarketplaceAbi, deployer);
+// NFTMarketplace kontrat örneği oluşturma
+const mockERC721 = new ethers.Contract(mockERC721Address, mockERC721Abi, deployer);
+// MockERC721 kontrat örneği oluşturma
+const [deployer] = await ethers.getSigners();
+const nftMarketplaceAbi = JSON.parse(fs.readFileSync('./abis/NFTMarketplaceABI.json')).abi;
+const nftMarketplaceAddress = JSON.parse(fs.readFileSync('./abis/NFTMarketplace-address.json')).address;
+// NFTMarketplace kontrat adresi ve ABI yükleme
+const mockERC721Abi = JSON.parse(fs.readFileSync('./abis/MockERC721ABI.json')).abi;
+const mockERC721Address = JSON.parse(fs.readFileSync('./abis/MockERC721-address.json')).address;
+// MockERC721 kontrat adresi ve ABI yükleme
+const ethers = require('ethers');
+const fs = require('fs');
+console.log(`NFT with sale ID ${saleId} purchased`);
+await nftMarketplace.buyNFT(saleId, { value: price });
+const saleId = 0; // Satış ID'si (ilk satış)
+console.log(`NFT with token ID ${tokenId} is now for sale for ${ethers.utils.formatEther(price)} ETH`);
+await nftMarketplace.startNFTSale(mockERC721Address, price, tokenId);
+const price = ethers.utils.parseEther("1"); // NFT fiyatı (1 ETH)
+console.log(`NFT minted with token ID ${tokenId} to address ${recipient}`);
+await mockERC721.mint(recipient, tokenId);
+const recipient = "0xYourRecipientAddress"; // NFT'nin gönderileceği adres
+const tokenId = 1; // Basılacak token ID'si
+const nftMarketplace = new ethers.Contract(nftMarketplaceAddress, nftMarketplaceAbi, deployer);
+// NFTMarketplace kontrat örneği oluşturma
+const mockERC721 = new ethers.Contract(mockERC721Address, mockERC721Abi, deployer);
+// MockERC721 kontrat örneği oluşturma
+const [deployer] = await ethers.getSigners();
+.exit
+const mockERC721Address = "0xAC0775EA1214Dd83c9e9951e6C476605d11ECEF6";
+const nftMarketplaceAddress = "0xAC0775EA1214Dd83c9e9951e6C476605d11ECEF6";
+.exit
+console.log("NFT başarıyla oluşturuldu!");
+await newTx.wait();
+// İşlemin onaylanmasını bekleyin
+console.log("Transaction hash:", newTx.hash);
+const newTx = await myNewContract.createNFT(newRecipient, newTokenURI);
+const newTokenURI = "https://resimlink.com/nKdH0h98kzL1";
+const newRecipient = "0xAC0775EA1214Dd83c9e9951e6C476605d11ECEF6";
+// Fonksiyonu çağırın
+const myNewContract = new ethers.Contract(myNewContractAddress, myNewAbi, newDeployer);
+// Kontrat örneğini oluşturun
+const [newDeployer] = await ethers.getSigners();
+// Signer'ı alın
+];
+    "function createNFT(address recipient, string memory tokenURI) public returns (uint256)"
+const myNewAbi = [
+const myNewContractAddress = "0xAC0775EA1214Dd83c9e9951e6C476605d11ECEF6"; // Buraya kendi kontrat adresinizi yazın
+// Kontrat adresini ve ABI'yi tanımlayın
+console.log("NFT başarıyla oluşturuldu!");
+await tx.wait();
+// İşlemin onaylanmasını bekleyin
+console.log("Transaction hash:", tx.hash);
+const tx = await myContract.createNFT(recipient, tokenURI);
+const tokenURI = "https://resimlink.com/nKdH0h98kzL1";
+const recipient = "0xAC0775EA1214Dd83c9e9951e6C476605d11ECEF6";
+// Fonksiyonu çağırın
+const myContract = new ethers.Contract(myContractAddress, myAbi, deployer);
+// Kontrat örneğini oluşturun
+const [deployer] = await ethers.getSigners();
+// Signer'ı alın
+console.log("NFT başarıyla oluşturuldu!");
+await tx.wait();
+// İşlemin onaylanmasını bekleyin
+console.log("Transaction hash:", tx.hash);
+const tx = await myContract.createNFT(recipient, tokenURI);
+const tokenURI = "https://resimlink.com/nKdH0h98kzL1";
+const recipient = "0xAC0775EA1214Dd83c9e9951e6C476605d11ECEF6";
+// Fonksiyonu çağırın
+const myContract = new ethers.Contract(myContractAddress, myAbi, deployer);
+// Kontrat örneğini oluşturun
+const [deployer] = await ethers.getSigners();
+// Signer'ı alın
+];
+    "function createNFT(address recipient, string memory tokenURI) public returns (uint256)"
+    // ABI'nin ilgili bölümü
+const myAbi = [
+const myContractAddress = "YOUR_CONTRACT_ADDRESS";
+// Farklı değişken isimleri kullanarak tanımlayın
+const [deployer] = await ethers.getSigners();
+];
+    "function createNFT(address recipient, string memory tokenURI) public returns (uint256)"
+    // ABI'nin ilgili bölümü
+const myAbi = [
+const contractAddress = "0xAC0775EA1214Dd83c9e9951e6C476605d11ECEF6";
+const contract = new ethers.Contract(contractAddress, abi, deployer);
+// Kontrat örneğini oluşturun
+const [deployer] = await ethers.getSigners();
+// Signer'ı alın
+];
+  "function createNFT(address recipient, string memory tokenURI) public returns (uint256)"
+  // ABI'nin ilgili bölümü
+const abi = [
+const contractAddress = "YOUR_CONTRACT_ADDRESS";
+// Kontrat adresini ve ABI'yi tanımlayın
+createNFT(0xAC0775EA1214Dd83c9e9951e6C476605d11ECEF6,https://resimlink.com/nKdH0h98kzL1);
+createNFT(0xAC0775EA1214Dd83c9e9951e6C476605d11ECEF6,https://resimlink.com/nKdH0h98kzL1)
+.exit
+.help
+exit
