@@ -1,3 +1,291 @@
+.exit
+  "function startNFTSale(address contractAddress, uint price, uint tokenId) public",
+console.log(nftMarketplaceInterface.functions);
+]);
+  // Diğer fonksiyonlar...
+  "function startNFTSale(address contractAddress, uint price, uint tokenId) public",
+const nftMarketplaceInterface = new ethers.utils.Interface([
+console.log("Started NFT sale for token 1 with price 1 ETH.");
+await nftMarketplace.startNFTSale(mockERC721Address, ethers.utils.parseEther("0.001"), 1);
+const nftMarketplaceAddress = "0x72f52d10bb7dF2B8a18fC7c0E75dDe6ad0d8AEcB";
+const nftMarketplace = await NFTMarketplace.attach(nftMarketplaceAddress);
+const NFTMarketplace = await ethers.getContractFactory("NFTMarketplace");
+console.log("Started NFT sale for token 1 with price 1 ETH.");
+await nftMarketplace.startNFTSale(mockERC721Address, ethers.utils.parseEther("0.001"), 1);
+// NFT'yi satışa sunma
+console.log("Approved NFTMarketplace to manage tokens.");
+await mockERC721.setApprovalForAll(nftMarketplace.address, true);
+await mockERC721.connect(deployer).setApprovalForAll(nftMarketplace.address, true);
+console.log(`Owner of token ${tokenId} is ${owner}`);
+const owner = await MockERC721.ownerOf(tokenId);
+await tx.wait(); // İşlemin tamamlanmasını bekleme
+const tx = await MockERC721.mint(recipient, tokenId);
+// NFT'yi mint etme
+const tokenId = 1;
+const recipient = "0x46202638d8bbCFe75e0b07DC79b0706070dF358A";
+const MockERC721 = new ethers.Contract("0x9d0928fE3d42bb3591946f49c151f4cCe6543FB2", ["function mint(address to, uint256 tokenId) public", "function ownerOf(uint256 tokenId) public view returns (address)"], signer);
+// MockERC721 kontratına erişim sağlama
+const signer = provider.getSigner();
+const provider = new ethers.providers.JsonRpcProvider("INFURA_PROJECT_ID");
+// Provider ve Signer ayarlarını yapın
+const { ethers } = require("ethers");
+await tx.wait();
+const tx = await MockERC721.mint(recipient, tokenId);
+const tokenId = 1;
+const recipient = "0x46202638d8bbCFe75e0b07DC79b0706070dF358A";
+const MockERC721 = await ethers.getContractAt("MockERC721","0x9d0928fE3d42bb3591946f49c151f4cCe6543FB2");
+const tokenId = 1;
+const recipient = "0x46202638d8bbCFe75e0b07DC79b0706070dF358A";
+const MockERC721 = await ethers.getContractAt("MockERC721", "0x9d0928fE3d42bb3591946f49c151f4cCe6543FB2");
+console.clear();
+}console.clear();
+  }
+    console.error("Failed to check NFT minting status:", error);
+  } catch (error) {
+    }
+      console.log(`TokenId ${tokenId} is not yet minted to ${toAddress}`);
+    } else {
+      console.log(`TokenId ${tokenId} is successfully minted to ${toAddress}`);
+    if (owner.toLowerCase() === toAddress.toLowerCase()) {
+    const owner = await nftMarketplace.ownerOf(tokenId); // NFT'nin sahipliğini kontrol etme
+    // NFT'yi mint ettikten sonra, tokenId'ye sahip olup olmadığını kontrol edin
+  try {
+async function checkMintedNFT(nftMarketplaceAddress , 1) {
+}
+  }
+    console.error("Failed to check NFT minting status:", error);
+  } catch (error) {
+    }
+      console.log(`TokenId ${tokenId} is not yet minted to ${toAddress}`);
+    } else {
+      console.log(`TokenId ${tokenId} is successfully minted to ${toAddress}`);
+    if (owner.toLowerCase() === toAddress.toLowerCase()) {
+    const owner = await nftMarketplace.ownerOf(tokenId); // NFT'nin sahipliğini kontrol etme
+    // NFT'yi mint ettikten sonra, tokenId'ye sahip olup olmadığını kontrol edin
+  try {
+async function checkMintedNFT(toAddress, tokenId) {
+}
+  }
+    console.error("Minting failed:", error);
+  } catch (error) {
+    console.log(`NFT minted to address ${toAddress} with tokenId ${tokenId}`);
+    await tx.wait(); // İşlemin onaylanmasını bekleyin
+    console.log(`Minting transaction hash: ${tx.hash}`);
+    const tx = await nftMarketplace.mint(toAddress, tokenId); // Mint fonksiyonunu çağırın
+  try {
+async function mintNFT(nftMarketplaceAddress, tokenId) {
+// NFT mint etme fonksiyonu
+const nftMarketplace = new ethers.Contract(nftMarketplaceAddress, nftMarketplaceABI, wallet);
+const nftMarketplaceAddress = "0xa968b20a5EE8914FB130eac380A63276485f5e81";
+// NFTMarketplace kontratına bağlanma
+const wallet = new ethers.Wallet("YOUR_PRIVATE_KEY", provider);
+const provider = new ethers.providers.JsonRpcProvider("https://mainnet.infura.io/v3/INFURA_PROJECT_ID");
+// Sağlayıcı ve cüzdan ayarlama
+const nftMarketplaceABI = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'abis/NFTMarketplace.json'), 'utf8'));
+// ABI dosyasını okuyun
+const { ethers } = require('ethers');
+const path = require('path');
+const fs = require('fs');
+mintNFT("0xRecipientAddress", 1);
+// NFT mint etme örneği
+}
+  }
+    console.error("Minting failed:", error);
+  } catch (error) {
+    console.log(`NFT minted to address ${toAddress} with tokenId ${tokenId}`);
+    await tx.wait(); // İşlemin onaylanmasını bekleyin
+    console.log(`Minting transaction hash: ${tx.hash}`);
+    const tx = await mockERC721.mint(toAddress, tokenId);
+  try {
+async function mintNFT(toAddress, tokenId) {
+// NFT mint etme fonksiyonu
+const mockERC721 = new ethers.Contract(mockERC721Address, mockERC721ABI, wallet);
+const mockERC721Address = "0x9d0928fE3d42bb3591946f49c151f4cCe6543FB2";
+// MockERC721 kontratına bağlanma
+const wallet = new ethers.Wallet("YOUR_PRIVATE_KEY", provider);
+const provider = new ethers.providers.JsonRpcProvider("https://mainnet.infura.io/v3/INFURA_PROJECT_ID");
+// Sağlayıcı ve cüzdan ayarlama
+const mockERC721ABI = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'abis/MockERC721.json'), 'utf8'));
+// ABI dosyasını okuyun
+const { ethers } = require('ethers');
+const path = require('path');
+const fs = require('fs');
+}.clear
+  }
+    console.error("Minting failed:", error);
+  } catch (error) {
+    console.log(`NFT minted to address ${toAddress} with tokenId ${tokenId}`);
+    await tx.wait(); // İşlemin onaylanmasını bekleyin
+    console.log(`Minting transaction hash: ${tx.hash}`);
+    const tx = await mockERC721.mint(toAddress, tokenId);
+  try {
+}async function mintNFT(wallet, 1) {
+  }
+    console.error("Minting failed:", error);
+  } catch (error) {
+    console.log(`NFT minted to address ${toAddress} with tokenId ${tokenId}`);
+    await tx.wait(); // İşlemin onaylanmasını bekleyin
+    console.log(`Minting transaction hash: ${tx.hash}`);
+    const tx = await mockERC721.mint(toAddress, tokenId);
+  try {
+}async function mintNFT(wallet, 1) {
+  }
+    console.error("Minting failed:", error);
+  } catch (error) {
+    console.log(`NFT minted to address ${toAddress} with tokenId ${tokenId}`);
+    await tx.wait(); // İşlemin onaylanmasını bekleyin
+    console.log(`Minting transaction hash: ${tx.hash}`);
+    const tx = await mockERC721.mint(toAddress, tokenId);
+  try {
+async function mintNFT(provider, 1) {
+}
+  }
+    console.error("Minting failed:", error);
+  } catch (error) {
+    console.log(`NFT minted to address ${toAddress} with tokenId ${tokenId}`);
+    await tx.wait(); // İşlemin onaylanmasını bekleyin
+    console.log(`Minting transaction hash: ${tx.hash}`);
+    const tx = await mockERC721.mint(toAddress, tokenId);
+  try {
+async function mintNFT(toAddress, tokenId) {
+const mockERC721 = new ethers.Contract(mockERC721Address, mockERC721ABI, wallet);
+const mockERC721Address = "0x9d0928fE3d42bb3591946f49c151f4cCe6543FB2";
+const wallet = new ethers.Wallet("DEPLOYER_PRIVATE_KEY", provider);
+", provider);
+const wallet = new ethers.Wallet("6703aa4288641217c3e88610a26d36a8b9757c53d5214247ea6b083cf0c3db31
+", provider);
+", provider);const wallet = new ethers.Wallet("6703aa4288641217c3e88610a26d36a8b9757c53d5214247ea6b083cf0c3db31
+const wallet = new ethers.Wallet("PRIVATE_KEY =6703aa4288641217c3e88610a26d36a8b9757c53d5214247ea6b083cf0c3db31
+const wallet = new ethers.Wallet("PRIVATE_KEY", provider);
+const provider = new ethers.providers.JsonRpcProvider("https://mainnet.infura.io/v3/964a901268c44f13a31d5b9117e887c7");
+");
+const provider = new ethers.providers.JsonRpcProvider("https://mainnet.infura.io/v3/INFURA_SEPOLIA_URL=https://sepolia.infura.io/v3/964a901268c44f13a31d5b9117e887c7
+const mockERC721ABI = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'abis/MockERC721.json'), 'utf8'));
+const { ethers } = require('ethers');
+const path = require('path');
+const fs = require('fs');
+console.log(`Token ID ${tokenId} minted to ${toAddress}`);
+await mockERC721.mint(toAddress, tokenId);
+const mockERC721 = MockERC721.attach(mockERC721Address);
+await mockERC721.mint(toAddress, tokenId);
+const tokenId = 1;await mockERC721.mint(toAddress, tokenId);
+const toAddress = "0xAC0775EA1214Dd83c9e9951e6C476605d11ECEF6";
+const mockERC721Address = "0x25255133590AEb8BA7e5CFf1eEe379B7afF695Fa";
+await mockERC721.mint(toAddress, tokenId);
+const tokenId = 1;
+const toAddress = "0xAC0775EA1214Dd83c9e9951e6C476605d11ECEF6";
+const MockERC721 = await ethers.getContractFactory("MockERC721");
+const mockERC721 = MockERC721.attach(mockERC721Address);
+.editor
+.help
+NFTMarketplace.getBalance()
+.exit
+await nftMarketplace.startNFTSale(contractAddress, price, tokenId);
+const tokenId = 1; // Token ID
+const price = ethers.utils.parseEther("0.01"); // 1 ETH
+const contractAddress = "MockERC721";
+await nftMarketplace.startNFTSale(0xAC0775EA1214Dd83c9e9951e6C476605d11ECEF6, price, tokenId);
+const tokenId = 1; // Token ID
+const price = ethers.utils.parseEther("0.01"); // 1 ETH
+const contractAddress = "MockERC721";
+await nftMarketplace.startNFTSale(contractAddress, price, tokenId);
+const tokenId = 1; // Token ID
+const price = ethers.utils.parseEther("0.01"); // 1 ETH
+const contractAddress = "MockERC721";
+const nftMarketplaceAddress = "0x194FA7fc440B42AcA97d89019C7127592CedA612";
+await nftMarketplace.startNFTSale(contractAddress, price, tokenId);
+const tokenId = 1; // Token ID
+const price = ethers.utils.parseEther("0.01"); // 1 ETH
+const contractAddress = "0x0305faBA314c27e8fB84Db4864f6bcb7216c2B11";
+const nftMarketplace = NFTMarketplace.attach(nftMarketplaceAddress);
+const NFTMarketplace = await ethers.getContractFactory("NFTMarketplace");
+const nftMarketplaceAddress = "0x0305faBA314c27e8fB84Db4864f6bcb7216c2B11";
+console.log(deployer.address)
+console.log("Token deployed to:", token.address);
+await token.deployed();
+const token = await Token.deploy();
+const Token = await ethers.getContractFactory("Token");
+console.log("Deployer address:", deployer.address);
+const [deployer] = await ethers.getSigners();
+await provider.getBlockNumber()
+const signer = provider.getSigner()
+provider.getBalance()
+provider.getBalance();
+const provider = new ethers.providers.JsonRpcProvider("https://sepolia.infura.io/v3/964a901268c44f13a31d5b9117e887c7");
+const provider = new ethers.providers.JsonRpcProvider((https:://sepolia.infura.io/v3/964a901268c44f13a31d5b9117e887c7));
+const provider = new ethers.providers.JsonRpcProvider((https://sepolia.infura.io/v3/964a901268c44f13a31d5b9117e887c7));
+const provider = new ethers.providers.JsonRpcProvider(https://sepolia.infura.io/v3/964a901268c44f13a31d5b9117e887c7);
+balance = await provider.getBalance("0x0305faBA314c27e8fB84Db4864f6bcb7216c2B11")
+const signer = provider.getSigner()
+const provider = new ethers.providers.INFURA_SEPOLIA_URL()
+const provider = new ethers.providers.JsonRpcProvider();
+const provider = new ethers.providers.Web3Provider(window.ethereum)
+const balance = await provider.getBalance(MockERC721)
+owner.bid(0)
+owner.bid(1)
+NFTMarketplace.cancelNFTSale(0)
+cancelNFTSale(0)
+cancelNFTSale(1)
+console.log(owner.balance)
+console.log(owner.balance())
+console.log(owner)
+console.log(seller)
+}
+  console.log(`Token ID ${tokenId} is not listed on the marketplace`);
+} else {
+  console.log(`Token ID ${tokenId} is listed by ${listing.seller} for ${ethers.utils.formatEther(listing.price)} ETH`);
+if (listing.seller !== ethers.constants.AddressZero) {
+const listing = await NFTMarketplace.getListing(MockERC721.address, tokenId);
+// Token ID'nin listelenip listelenmediğini kontrol edin
+const NFTMarketplace = await ethers.getContractAt("NFTMarketplace", "0x119d268D7eA60254C72Ace7bC92Ef1B5556210B1");
+// NFTMarketplace kontratını alın
+console.log(`Token ID ${tokenId} is owned by: ${owner}`);
+const owner = await MockERC721.ownerOf(tokenId);
+// Token sahibini alın
+const tokenId = 1;
+// Token ID'yi belirleyin
+console.log(`Token URI: ${tokenURI}`);
+const tokenURI = await MockERC721.tokenURI(tokenId);
+// Token URI'sini alın
+const tokenId = 1;
+// Token ID'yi belirleyin
+console.log("NFTMarketplace address:", NFTMarketplace.address);
+// Kontrat adresini kontrol edin
+const NFTMarketplace = await ethers.getContractAt("NFTMarketplace", "0x119d268D7eA60254C72Ace7bC92Ef1B5556210B1");
+// NFTMarketplace kontratını alın
+console.log("NFTMarketplace address:", NFTMarketplace.address);
+// Kontrat adresini kontrol edin
+const NFTMarketplace = await ethers.getContractAt("NFTMarketplace", "0x119d268D7eA60254C72Ace7bC92Ef1B5556210B1");
+// Ethers.js kütüphanesini kullanarak kontrat fabrikasını alın
+console.log("NFT listed successfully!");
+await listTx.wait();
+const listTx = await NFTMarketplace.listItem(MockERC721.address, tokenId, price);
+console.log(`NFT approved for marketplace with token ID ${tokenId}`);
+await approveTx.wait();
+const approveTx = await MockERC721.approve(NFTMarketplace.address, tokenId);
+// NFT'yi Marketplace'e listelemek için NFT'yi onaylayın ve listeleme işlemi yapın
+const price = ethers.utils.parseEther("0.1"); // 0.1 Ether
+// NFT'yi listelemek için gerekli bilgileri belirleyin
+console.log(`NFT minted successfully with token ID ${tokenId}`);
+await mintTx.wait();
+const mintTx = await MockERC721.mint(deployer.address, tokenId, tokenURI);
+// NFT'yi mintlemek
+const tokenURI = "https://example.com/nft/metadata/1";
+const tokenId = 1;
+const [deployer] = await ethers.getSigners();
+// İmzalayıcı adresini ve mint edilecek token ID'sini belirleyin
+console.log(`NFT minted successfully with token ID ${tokenId}`);
+await mintTx.wait();
+const mintTx = await MockERC721.mint(deployer.address, tokenId, tokenURI);
+// NFT'yi mintleyin
+const tokenURI = "https://example.com/nft/metadata/1";
+const tokenId = 1;
+const [deployer] = await ethers.getSigners();
+// NFT mintlemek için bir adres ve token ID belirleyin
+console.log("MockERC721 address:", MockERC721.address);
+// Kontrat adresini kontrol edin
+const MockERC721 = await ethers.getContractAt("MockERC721", "0x9dA8fa26B73bf812275476C232cdce0763f56e7C");
+// MockERC721 kontratını alın
 console.log("Owner of token:", owner);
 const owner = await marketplace.ownerOf(1);
 const tokenId = 1; // Replace with the actual token ID
