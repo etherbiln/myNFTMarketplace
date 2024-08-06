@@ -59,4 +59,4 @@ NFTMarketplace contracts can be vulnerable to various security issues. Here are 
 As a result of using these tools, potential security vulnerabilities in the smart contracts have been identified and necessary improvements have been made. This has significantly enhanced the security of the smart contracts.
 
 
-![Slither](images/slither.png)
+![Slither](images/Security/slither.png)
