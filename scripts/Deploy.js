@@ -6,17 +6,18 @@ async function main() {
   const balance = await deployer.getBalance();
   console.log("Account balance:", balance.toString());
 
-  const NFTMarketplace = await ethers.getContractFactory("NFTMarketplace");
+  const NFTMarketplace = await ethers.getContractFactory("Marketplace");
   const nftMarketplace = await NFTMarketplace.deploy();
   await nftMarketplace.deployed();
 
-  console.log("NFTMarketplace deployed to:", nftMarketplace.address);
+  console.log("Marketplace deployed to:", nftMarketplace.address);
 
-  const MockERC721 = await ethers.getContractFactory("MockERC721");
-  const mockERC721 = await MockERC721.deploy();
-  await mockERC721.deployed();
+  const MyNFT = await ethers.getContractFactory("MyNFT");
+  const initialAddress = "0x1405Ee3D5aF0EEe632b7ece9c31fA94809e6030d"; // initial Address
+  const myNFT = await MyNFT.deploy(initialAddress);
+  await myNFT.deployed();
 
-  console.log("MockERC721 deployed to:", mockERC721.address);
+  console.log("MyNFT deployed to:", myNFT.address);
 }
 
 main()
