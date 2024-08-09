@@ -14,6 +14,14 @@ contract Marketplace {
         auctionContract = new Auction();
     }
     
+    function setSaleContract(address _saleContract) external {
+        saleContract = Sale(_saleContract);
+    }
+
+    function setAuctionContract(address _auctionContract) external {
+        auctionContract = Auction(_auctionContract);
+    }
+    
     function approveMarketplaceForAll(address nftContract) public {
         IERC721(nftContract).setApprovalForAll(address(this), true);
     }
