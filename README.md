@@ -1,10 +1,10 @@
-# NFT Marketplace
+# 🎨 NFT Marketplace
 
-## Overview
+## 📝 Overview
 
 The **NFT Marketplace** is a decentralized platform for buying, selling, and auctioning NFTs (Non-Fungible Tokens). This contract allows users to list their NFTs for sale or auction, and buyers can purchase or bid on these NFTs. The marketplace also supports royalty payments to the creators of the NFTs.
 
-## Features
+## ✨ Features
 
 - **NFT Sale**: List NFTs for sale at a fixed price.
 - **NFT Auction**: List NFTs for auction with a starting price and deadline.
@@ -16,7 +16,7 @@ The **NFT Marketplace** is a decentralized platform for buying, selling, and auc
 - **Ownership Verification**: Verify the ownership of NFTs before listing them for sale or auction.
 - **Upgradeable Contract**: Support for contract upgrades using a proxy model.
 
-## How I Designed the Project
+## 🛠 How I Designed the Project
 
 ### Project Initialization
 Before starting the project, I set up the development environment and installed the necessary dependencies. These dependencies included **Hardhat**, **OpenZeppelin Contracts**, **Slither**, and **Echidna**. This step laid a solid foundation for the project and helped me carry out subsequent steps more efficiently.
@@ -30,5 +30,36 @@ To ensure that the smart contracts functioned as expected, I wrote and executed 
 ### Review and Optimization
 Finally, I meticulously reviewed the smart contract code and optimized it for gas efficiency and security. I addressed issues identified during testing and static analysis with great care. This step maximized the project's performance and security, enhancing the user experience.
 
-<h1 style="color:blue;">NFT Marketplace</h1>
-<p style="font-family:Arial;">The <strong>NFT Marketplace</strong> is a decentralized platform...</p>
+## 🚀 Development
+
+### Setting Up the Development Environment
+
+1. **Install Dependencies**:
+    - **Hardhat**: A development environment to compile, deploy, test, and debug your Ethereum software.
+    - **OpenZeppelin Contracts**: A library for secure smart contract development.
+    - **Docker**: To create a consistent development environment.
+
+    ```sh
+    npm install --save-dev hardhat @openzeppelin/contracts
+    ```
+
+2. **Initialize Hardhat**:
+    - Create a new Hardhat project.
+
+    ```sh
+    npx hardhat
+    ```
+    
+
+### Deploy Smart Contracts
+
+Create a `.env` file and set the necessary environment variables:
+
+```env
+INFURA_PROJECT_ID=your-infura-project-id
+DEPLOYER_PRIVATE_KEY=your-private-key
+```
+### Deploy Sepolia
+```
+npx hardhat run scripts/deploy.js --network sepolia
+```
