@@ -1,61 +1,70 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.13;
 
-import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
+import "contracts/Marketplace.sol";
+import "./MyNFT.sol";
+
 
 contract Sale {
-    uint256 idForSale;
-    mapping(uint => ItemForSale) public idToItemForSale;
+    uint idForSale;
+    Marketplace public marketplace;
 
-    struct ItemForSale {
+    struct ItemForSale{
         address contractAddress;
         address seller;
         address buyer;
-        address creator; 
         uint price;
         uint tokenId;
-        uint royaltyPercentage;
-        bool state;
+        bool isSold;
     }
+    mapping(uint => ItemForSale) public idToItemForSale;
 
-    function startNFTSale(address contractAddress, uint256 priceNFT, uint256 tokenId, uint256 royaltyPercentage, address owner) public {
+    event NFTSaleStarted(address contractAddress, uint256 price, uint256 tokenId);
+    event NFTSaleCancelled(uint256 id, address contractAddress, uint256 tokenId);
+    event NFTBought(uint256 id, address contractAddress, address seller, address buyer, uint256 price, uint256 tokenId);
+
+    function startNFTSale(address contractAddress, uint price, uint tokenId) public {
         IERC721 NFT = IERC721(contractAddress);
-        require(NFT.ownerOf(tokenId) == msg.sender, "You are not owner of this NFT!");
+        require(NFT.ownerOf(tokenId) == msg.sender, "You are not owner of this NFT!"); 
         NFT.transferFrom(msg.sender, address(this), tokenId);
-        idToItemForSale[idForSale] = ItemForSale(contractAddress, msg.sender, msg.sender, msg.sender, priceNFT, tokenId, royaltyPercentage, false);
+        
+        idToItemForSale[idForSale] = ItemForSale(contractAddress, msg.sender, msg.sender,price,tokenId,false);
         idForSale += 1;
-        owner = msg.sender;
+
+        emit NFTSaleStarted(contractAddress, price, tokenId);
     }
 
-    function cancelNFTSale(uint256 Id, address owner) public {
-
-        ItemForSale storage info = idToItemForSale[Id];
-        require(info.seller == msg.sender, "You are not owner of this NFT!");
-        require(info.state == false, "This NFT sold!");
-        owner = info.seller;
-        info.state = true;
-    
+    function cancelNFTSale(uint Id) public {
+        ItemForSale memory info = idToItemForSale[Id];
         IERC721 NFT = IERC721(info.contractAddress);
-        NFT.transferFrom(address(this), msg.sender, info.tokenId);
+       
+        require(info.seller == msg.sender, "You are not owner of this NFT!");
+        require(info.isSold == false, "This NFT sold!");
+
+        idToItemForSale[Id] = ItemForSale(address(0), address(0), address(0),0,0,true);
+
+        NFT.transferFrom(address(this), msg.sender, info.tokenId);        
+
+        emit NFTSaleCancelled(Id,info.contractAddress, info.tokenId);
     }
 
-    function buyNFT(uint256 Id, address owner) public payable {
+    function buyNFT(uint Id) payable public {
         ItemForSale storage info = idToItemForSale[Id];
-        require(Id < idForSale, "Invalid sale ID");
-        require(msg.sender != info.seller, "You are the seller");
-        require(msg.value == info.price, "Incorrect price");
-        require(!info.state, "NFT already sold");
+        require(Id < idForSale);
+        require(msg.sender != info.seller, "You are seller");
+        require(msg.value == info.price, "Wrong Price!");
+        require(info.isSold == false, "Cannot buy!");
 
         info.buyer = msg.sender;
-        info.state = true;
+        info.isSold = true;
 
         IERC721 NFT = IERC721(info.contractAddress);
         NFT.transferFrom(address(this), msg.sender, info.tokenId);
-
-        uint royaltyAmount = msg.value * info.royaltyPercentage / 100;
-        uint sellerAmount = msg.value * 95 / 100 - royaltyAmount;
-        payable(info.creator).transfer(royaltyAmount);
-        payable(info.seller).transfer(sellerAmount);
-        payable(owner).transfer(msg.value - sellerAmount - royaltyAmount);
+        
+        uint price = msg.value * 95 / 100;
+        payable(info.seller).transfer(price);
+        payable(msg.sender).transfer(msg.value - price);   
+        
+        emit NFTBought(Id, info.contractAddress, info.seller, msg.sender, info.price, info.tokenId);
     }
 }

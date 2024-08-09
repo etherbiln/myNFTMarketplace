@@ -1,37 +1,37 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.13;
 
-import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
-import "@openzeppelin/contracts/proxy/utils/Initializable.sol";
+import "./MyNFT.sol";
 import "./Sale.sol";
 import "./Auction.sol";
-import "./Utils.sol";
 
 contract Marketplace {
-    address public owner;
     Sale public saleContract;
     Auction public auctionContract;
 
     constructor()  {
-        owner = msg.sender;
         saleContract = new Sale();
         auctionContract = new Auction();
     }
+    
+    function approveMarketplaceForAll(address nftContract) public {
+        IERC721(nftContract).setApprovalForAll(address(this), true);
+    }
 
-    function startNFTSale(address contractAddress, uint256 priceNFT, uint256 tokenId, uint256 royaltyPercentage) public {
-        saleContract.startNFTSale(contractAddress, priceNFT, tokenId, royaltyPercentage, owner);
+    function startNFTSale(address contractAddress, uint256 priceNFT, uint256 tokenId) public payable  {
+        saleContract.startNFTSale(contractAddress, priceNFT, tokenId);
     }
 
     function cancelNFTSale(uint256 Id) public {
-        saleContract.cancelNFTSale(Id, owner);
+        saleContract.cancelNFTSale(Id);
     }
 
     function buyNFT(uint256 Id) public payable {
-        saleContract.buyNFT{value: msg.value}(Id, owner);
+        saleContract.buyNFT{value: msg.value}(Id);
     }
 
-    function startNFTAuction(address contractAddress, uint256 startingPrice, uint256 tokenId, uint256 deadline, uint256 royaltyPercentage) public {
-        auctionContract.startNFTAuction(contractAddress, startingPrice, tokenId, deadline, royaltyPercentage);
+    function startNFTAuction(address contractAddress, uint256 startingPrice, uint256 tokenId, uint256 deadline) public {
+        auctionContract.startNFTAuction(contractAddress, startingPrice, tokenId, deadline);
     }
 
     function cancelNFTAuction(uint256 Id) public {

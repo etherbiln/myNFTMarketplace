@@ -14,6 +14,7 @@ async function main() {
 
   const MyNFT = await ethers.getContractFactory("MyNFT");
   const initialAddress = "0x1405Ee3D5aF0EEe632b7ece9c31fA94809e6030d"; // initial Address
+  
   const myNFT = await MyNFT.deploy(initialAddress);
   await myNFT.deployed();
 
