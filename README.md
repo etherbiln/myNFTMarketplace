@@ -2,7 +2,7 @@
 
 ## Overview
 
-The NFT Marketplace is a decentralized platform for buying, selling, and auctioning NFTs (Non-Fungible Tokens). This contract allows users to list their NFTs for sale or auction, and buyers can purchase or bid on these NFTs. The marketplace also supports royalty payments to the creators of the NFTs.
+The **NFT Marketplace** is a decentralized platform for buying, selling, and auctioning NFTs (Non-Fungible Tokens). This contract allows users to list their NFTs for sale or auction, and buyers can purchase or bid on these NFTs. The marketplace also supports royalty payments to the creators of the NFTs.
 
 ## Features
 
@@ -15,7 +15,6 @@ The NFT Marketplace is a decentralized platform for buying, selling, and auction
 - **Finish Auction**: Automatically finalize the auction process and transfer the NFT to the highest bidder.
 - **Ownership Verification**: Verify the ownership of NFTs before listing them for sale or auction.
 - **Upgradeable Contract**: Support for contract upgrades using a proxy model.
-
 
 ## How I Designed the Project
 
@@ -31,20 +30,5 @@ To ensure that the smart contracts functioned as expected, I wrote and executed 
 ### Review and Optimization
 Finally, I meticulously reviewed the smart contract code and optimized it for gas efficiency and security. I addressed issues identified during testing and static analysis with great care. This step maximized the project's performance and security, enhancing the user experience.
 
-
-## Development
-
-### Deploy Smart Contracts
-
-Create a `.env` file and set the necessary environment variables:
-
-    ```env
-    INFURA_PROJECT_ID=your-infura-project-id
-    DEPLOYER_PRIVATE_KEY=your-private-key
-
-
-deploy Sepolia
-```sh
-npx hardhat run scripts/deploy.js --network sepolia
-```
-
+<h1 style="color:blue;">NFT Marketplace</h1>
+<p style="font-family:Arial;">The <strong>NFT Marketplace</strong> is a decentralized platform...</p>
