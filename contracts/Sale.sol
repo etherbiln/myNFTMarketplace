@@ -4,7 +4,6 @@ pragma solidity ^0.8.13;
 import "contracts/Marketplace.sol";
 import "./MyNFT.sol";
 
-
 contract Sale {
     uint idForSale;
     Marketplace public marketplace;
@@ -22,6 +21,8 @@ contract Sale {
     event NFTSaleStarted(address contractAddress, uint256 price, uint256 tokenId);
     event NFTSaleCancelled(uint256 id, address contractAddress, uint256 tokenId);
     event NFTBought(uint256 id, address contractAddress, address seller, address buyer, uint256 price, uint256 tokenId);
+
+
 
     function startNFTSale(address contractAddress, uint price, uint tokenId) public {
         IERC721 NFT = IERC721(contractAddress);
@@ -67,4 +68,9 @@ contract Sale {
         
         emit NFTBought(Id, info.contractAddress, info.seller, msg.sender, info.price, info.tokenId);
     }
+    function isSaleActive(uint256 saleId) public view returns (bool) {
+        ItemForSale storage info = idToItemForSale[saleId];
+        return !info.isSold;
+    }
+    
 }

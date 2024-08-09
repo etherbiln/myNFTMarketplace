@@ -80,4 +80,9 @@ contract Auction {
         idToItemForAuction[Id] = ItemForAuction(address(0), address(0), address(0),0,0,0,0,true);
         NFT.transferFrom(address(this), msg.sender, info.tokenId);
     }
+    
+    function isAuctionActive(uint256 saleId) public view returns (bool) {
+        ItemForAuction storage info = idToItemForAuction[saleId];
+        return !info.isFinished;
+    }
 }
