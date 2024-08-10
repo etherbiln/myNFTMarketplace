@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.13;
 
-import "./Marketplace.sol";
+import "../contracts/Marketplace.sol";
 
 contract MarketplaceTest is Marketplace {
     constructor() Marketplace() {}

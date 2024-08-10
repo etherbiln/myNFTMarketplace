@@ -9,14 +9,13 @@ contract MyNFT is ERC721, Ownable, Pausable {
     uint256 private _tokenIds;
     uint256 private _currentTokenId = 0;
     
-    constructor(address initialOwner) ERC721("MyNFT", "MFT") Ownable(initialOwner) {
-        
+    constructor(address initialOwner) ERC721("MyNFT", "MFT") Ownable(initialOwner) {     
+
     }
 
-    function mint(address to) external returns (uint256) {
-        _currentTokenId++;
+    function mint(address to) external {
         _mint(to, _currentTokenId);
-        return _currentTokenId;
+        _currentTokenId++;
     }
 
     function pause() public onlyOwner {
