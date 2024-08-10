@@ -29,26 +29,6 @@ To ensure that the smart contracts functioned as expected, I wrote and executed 
 
 ### Review and Optimization
 Finally, I meticulously reviewed the smart contract code and optimized it for gas efficiency and security. I addressed issues identified during testing and static analysis with great care. This step maximized the project's performance and security, enhancing the user experience.
-
-## 🚀 Development
-
-### Setting Up the Development Environment
-
-1. **Install Dependencies**:
-    - **Hardhat**: A development environment to compile, deploy, test, and debug your Ethereum software.
-    - **OpenZeppelin Contracts**: A library for secure smart contract development.
-    - **Docker**: To create a consistent development environment.
-
-    ```sh
-    npm install --save-dev hardhat @openzeppelin/contracts
-    ```
-
-2. **Initialize Hardhat**:
-    - Create a new Hardhat project.
-
-    ```sh
-    npx hardhat
-    ```
     
 
 ### Deploy Smart Contracts
