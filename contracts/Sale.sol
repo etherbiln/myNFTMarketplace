@@ -16,6 +16,7 @@ contract Sale {
         uint tokenId;
         bool isSold;
     }
+    
     mapping(uint => ItemForSale) public idToItemForSale;
 
     event NFTSaleStarted(address contractAddress, uint256 price, uint256 tokenId);
@@ -51,8 +52,8 @@ contract Sale {
         ItemForSale storage info = idToItemForSale[Id];
         require(Id < idForSale, "Invalid sale ID");
         require(msg.sender != info.seller, "You are seller");
-        require(msg.value == info.price, "Wrong Price!");
-        require(info.isSold == false, "Cannot buy!");
+        require(msg.value >= info.price, "Wrong Price!");
+        require(info.isSold == false, "This NFT sold!");
 
         info.buyer = msg.sender;
         info.isSold = true;

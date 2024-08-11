@@ -45,12 +45,4 @@ contract Marketplace {
     function finishNFTAuction(uint256 Id) public {
         auctionContract.finishNFTAuction(Id);
     }
-
-    function setSaleContract(address _saleContract) external {
-        saleContract = Sale(_saleContract);
-    }
-
-    function setAuctionContract(address _auctionContract) external {
-        auctionContract = Auction(_auctionContract);
-    }
 }
